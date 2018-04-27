@@ -3,5 +3,10 @@ compliler: gcc
 script: make && make test
 #can add notifications section as desired
 
+before_install:
+  - pip install --user cpp-coveralls
+  
+after_success:
+  - coveralls --include "balanced.cpp" --gcov-options '\-lp'
 
 
